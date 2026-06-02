@@ -143,6 +143,18 @@ module.exports = {
         "no-restricted-imports": [
           "error",
           {
+            paths: [
+              {
+                name: "node:http",
+                importNames: ["request"],
+                message: "Use a default import (import http from 'node:http') so runtime HTTP request interception keeps working.",
+              },
+              {
+                name: "node:https",
+                importNames: ["request"],
+                message: "Use a default import (import https from 'node:https') so runtime HTTP request interception keeps working.",
+              },
+            ],
             patterns: [
               {
                 group: ["@smithy/core/transport"],
